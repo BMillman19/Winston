@@ -8,16 +8,18 @@
 
 #import "AppDelegate.h"
 
-#import "ViewController.h"
+#import "ConversationViewController.h"
 
 @implementation AppDelegate
+
+@synthesize conversationViewController = _conversationViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    self.conversationViewController = [[ConversationViewController alloc] initWithNibName:@"ConversationViewController" bundle:nil];
+    self.window.rootViewController = self.conversationViewController;
     [self.window makeKeyAndVisible];
     return YES;
 }

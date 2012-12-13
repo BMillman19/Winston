@@ -16,8 +16,15 @@
 		3D40CAAD1678F6DF0090FD93 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D40CAAC1678F6DF0090FD93 /* Default.png */; };
 		3D40CAAF1678F6DF0090FD93 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D40CAAE1678F6DF0090FD93 /* Default@2x.png */; };
 		3D40CAB11678F6DF0090FD93 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D40CAB01678F6DF0090FD93 /* Default-568h@2x.png */; };
-		3D40CAB41678F6DF0090FD93 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D40CAB31678F6DF0090FD93 /* ViewController.m */; };
-		3D40CAB71678F6DF0090FD93 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D40CAB51678F6DF0090FD93 /* ViewController.xib */; };
+		3D40CAC51678FFC80090FD93 /* SpeechKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D40CAC41678FFC80090FD93 /* SpeechKit.framework */; };
+		3D40CAC9167900070090FD93 /* WinstonTopicEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D40CAC8167900070090FD93 /* WinstonTopicEngine.m */; };
+		3D40CACB167943AB0090FD93 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D40CACA167943AB0090FD93 /* AudioToolbox.framework */; };
+		3D40CACD167943CB0090FD93 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D40CACC167943CB0090FD93 /* AVFoundation.framework */; };
+		3D40CACF167943FA0090FD93 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D40CACE167943FA0090FD93 /* Security.framework */; };
+		3D40CAD11679440B0090FD93 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D40CAD01679440B0090FD93 /* CFNetwork.framework */; };
+		3D40CAD3167944220090FD93 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D40CAD2167944220090FD93 /* SystemConfiguration.framework */; };
+		3D40CAD716794B7E0090FD93 /* ConversationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D40CAD516794B7E0090FD93 /* ConversationViewController.m */; };
+		3D40CAD816794B7E0090FD93 /* ConversationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D40CAD616794B7E0090FD93 /* ConversationViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,12 +38,20 @@
 		3D40CAA81678F6DF0090FD93 /* Winston-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Winston-Prefix.pch"; sourceTree = "<group>"; };
 		3D40CAA91678F6DF0090FD93 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3D40CAAA1678F6DF0090FD93 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3D40CAAC1678F6DF0090FD93 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		3D40CAAE1678F6DF0090FD93 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		3D40CAB01678F6DF0090FD93 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		3D40CAB21678F6DF0090FD93 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3D40CAB31678F6DF0090FD93 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3D40CAB61678F6DF0090FD93 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		3D40CAAC1678F6DF0090FD93 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Winston/Default.png; sourceTree = "<group>"; };
+		3D40CAAE1678F6DF0090FD93 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Winston/Default@2x.png"; sourceTree = "<group>"; };
+		3D40CAB01678F6DF0090FD93 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Winston/Default-568h@2x.png"; sourceTree = "<group>"; };
+		3D40CAC41678FFC80090FD93 /* SpeechKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpeechKit.framework; sourceTree = "<group>"; };
+		3D40CAC7167900070090FD93 /* WinstonTopicEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WinstonTopicEngine.h; sourceTree = "<group>"; };
+		3D40CAC8167900070090FD93 /* WinstonTopicEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinstonTopicEngine.m; sourceTree = "<group>"; };
+		3D40CACA167943AB0090FD93 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3D40CACC167943CB0090FD93 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		3D40CACE167943FA0090FD93 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		3D40CAD01679440B0090FD93 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		3D40CAD2167944220090FD93 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		3D40CAD416794B7E0090FD93 /* ConversationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConversationViewController.h; sourceTree = "<group>"; };
+		3D40CAD516794B7E0090FD93 /* ConversationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConversationViewController.m; sourceTree = "<group>"; };
+		3D40CAD616794B7E0090FD93 /* ConversationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConversationViewController.xib; path = ../Winston/ConversationViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +59,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3D40CAD3167944220090FD93 /* SystemConfiguration.framework in Frameworks */,
+				3D40CAD11679440B0090FD93 /* CFNetwork.framework in Frameworks */,
+				3D40CACF167943FA0090FD93 /* Security.framework in Frameworks */,
+				3D40CACD167943CB0090FD93 /* AVFoundation.framework in Frameworks */,
+				3D40CACB167943AB0090FD93 /* AudioToolbox.framework in Frameworks */,
+				3D40CAC51678FFC80090FD93 /* SpeechKit.framework in Frameworks */,
 				3D40CA9B1678F6DF0090FD93 /* UIKit.framework in Frameworks */,
 				3D40CA9D1678F6DF0090FD93 /* Foundation.framework in Frameworks */,
 				3D40CA9F1678F6DF0090FD93 /* CoreGraphics.framework in Frameworks */,
@@ -57,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				3D40CAA01678F6DF0090FD93 /* Winston */,
+				3D40CAC31678FF280090FD93 /* Resources */,
 				3D40CA991678F6DF0090FD93 /* Frameworks */,
 				3D40CA971678F6DF0090FD93 /* Products */,
 			);
@@ -73,6 +95,12 @@
 		3D40CA991678F6DF0090FD93 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3D40CAD2167944220090FD93 /* SystemConfiguration.framework */,
+				3D40CAD01679440B0090FD93 /* CFNetwork.framework */,
+				3D40CACE167943FA0090FD93 /* Security.framework */,
+				3D40CACC167943CB0090FD93 /* AVFoundation.framework */,
+				3D40CACA167943AB0090FD93 /* AudioToolbox.framework */,
+				3D40CAC41678FFC80090FD93 /* SpeechKit.framework */,
 				3D40CA9A1678F6DF0090FD93 /* UIKit.framework */,
 				3D40CA9C1678F6DF0090FD93 /* Foundation.framework */,
 				3D40CA9E1678F6DF0090FD93 /* CoreGraphics.framework */,
@@ -83,11 +111,10 @@
 		3D40CAA01678F6DF0090FD93 /* Winston */ = {
 			isa = PBXGroup;
 			children = (
-				3D40CAA91678F6DF0090FD93 /* AppDelegate.h */,
-				3D40CAAA1678F6DF0090FD93 /* AppDelegate.m */,
-				3D40CAB21678F6DF0090FD93 /* ViewController.h */,
-				3D40CAB31678F6DF0090FD93 /* ViewController.m */,
-				3D40CAB51678F6DF0090FD93 /* ViewController.xib */,
+				3D9023B1167A81770037D5E8 /* Network */,
+				3D40CAC61678FFDF0090FD93 /* Speech */,
+				3D40CAC11678FF060090FD93 /* Application */,
+				3D40CAC21678FF150090FD93 /* ViewControllers */,
 				3D40CAA11678F6DF0090FD93 /* Supporting Files */,
 			);
 			path = Winston;
@@ -100,11 +127,53 @@
 				3D40CAA31678F6DF0090FD93 /* InfoPlist.strings */,
 				3D40CAA61678F6DF0090FD93 /* main.m */,
 				3D40CAA81678F6DF0090FD93 /* Winston-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3D40CAC11678FF060090FD93 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3D40CAA91678F6DF0090FD93 /* AppDelegate.h */,
+				3D40CAAA1678F6DF0090FD93 /* AppDelegate.m */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		3D40CAC21678FF150090FD93 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3D40CAD416794B7E0090FD93 /* ConversationViewController.h */,
+				3D40CAD516794B7E0090FD93 /* ConversationViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		3D40CAC31678FF280090FD93 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3D40CAD616794B7E0090FD93 /* ConversationViewController.xib */,
 				3D40CAAC1678F6DF0090FD93 /* Default.png */,
 				3D40CAAE1678F6DF0090FD93 /* Default@2x.png */,
 				3D40CAB01678F6DF0090FD93 /* Default-568h@2x.png */,
 			);
-			name = "Supporting Files";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3D40CAC61678FFDF0090FD93 /* Speech */ = {
+			isa = PBXGroup;
+			children = (
+				3D40CAC7167900070090FD93 /* WinstonTopicEngine.h */,
+				3D40CAC8167900070090FD93 /* WinstonTopicEngine.m */,
+			);
+			name = Speech;
+			sourceTree = "<group>";
+		};
+		3D9023B1167A81770037D5E8 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +231,7 @@
 				3D40CAAD1678F6DF0090FD93 /* Default.png in Resources */,
 				3D40CAAF1678F6DF0090FD93 /* Default@2x.png in Resources */,
 				3D40CAB11678F6DF0090FD93 /* Default-568h@2x.png in Resources */,
-				3D40CAB71678F6DF0090FD93 /* ViewController.xib in Resources */,
+				3D40CAD816794B7E0090FD93 /* ConversationViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +244,8 @@
 			files = (
 				3D40CAA71678F6DF0090FD93 /* main.m in Sources */,
 				3D40CAAB1678F6DF0090FD93 /* AppDelegate.m in Sources */,
-				3D40CAB41678F6DF0090FD93 /* ViewController.m in Sources */,
+				3D40CAC9167900070090FD93 /* WinstonTopicEngine.m in Sources */,
+				3D40CAD716794B7E0090FD93 /* ConversationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,14 +258,6 @@
 				3D40CAA41678F6DF0090FD93 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		3D40CAB51678F6DF0090FD93 /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3D40CAB61678F6DF0090FD93 /* en */,
-			);
-			name = ViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -256,6 +318,10 @@
 		3D40CABB1678F6DF0090FD93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winston/Winston-Prefix.pch";
 				INFOPLIST_FILE = "Winston/Winston-Info.plist";
@@ -267,6 +333,10 @@
 		3D40CABC1678F6DF0090FD93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Winston/Winston-Prefix.pch";
 				INFOPLIST_FILE = "Winston/Winston-Info.plist";
@@ -294,6 +364,7 @@
 				3D40CABC1678F6DF0090FD93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
