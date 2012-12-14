@@ -63,7 +63,7 @@ const unsigned char SpeechKitApplicationKey[] = {0x4c, 0x91, 0xad, 0x24, 0x5c, 0
                                             language:@"en_US"
                                             delegate:self];
     
-    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:self.updateInterval target:self selector:@selector(handleUpdateTimer:) userInfo:nil repeats:YES];
+    //self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:self.updateInterval target:self selector:@selector(handleUpdateTimer:) userInfo:nil repeats:YES];
     
 }
 
@@ -110,11 +110,11 @@ const unsigned char SpeechKitApplicationKey[] = {0x4c, 0x91, 0xad, 0x24, 0x5c, 0
     }
     else if ([string characterAtIndex:string.length - 1] == 's')
     {
-        return [string substringToIndex:string.length - 1];
+        return [[string substringToIndex:string.length - 1] lowercaseString];
     }
     else
     {
-        return [string copy];
+        return [[string copy] lowercaseString];
     }
 }
 
@@ -188,14 +188,15 @@ const unsigned char SpeechKitApplicationKey[] = {0x4c, 0x91, 0xad, 0x24, 0x5c, 0
     if (self.needsToSendTopicToDelegate)
     {
         [self sendTopicToDelegate];
-        self.needsToSendTopicToDelegate = NO;
+        self.needsToSendTopicToDelegate = YES;
     }
     
-    self.recognizer = nil;
-    self.recognizer = [[SKRecognizer alloc] initWithType:SKDictationRecognizerType
-                                               detection:SKLongEndOfSpeechDetection
-                                                language:@"en_US"
-                                                delegate:self];
+//    self.recognizer = nil;
+//    self.recognizer = [[SKRecognizer alloc] initWithType:SKDictationRecognizerType
+//                                               detection:SKLongEndOfSpeechDetection
+//                                                language:@"en_US"
+//                                                delegate:self];
+    [self stop];
 }
 
 /*!
