@@ -30,7 +30,18 @@ const unsigned char SpeechKitApplicationKey[] = {0x4c, 0x91, 0xad, 0x24, 0x5c, 0
 @synthesize needsToSendTopicToDelegate = _needsToSendTopicToDelegate;
 @synthesize frequencyMap = _frequencyMap;
 
-#pragma mark - Instance Methods
+
+#pragma mark - Init and Dealloc
+
+- (void)dealloc
+{
+    [_recognizer cancel];
+    //[_recognizer release];
+    [_updateTimer invalidate];
+    //[_updateTimer release];
+    //[_frequencyMap release];
+    //[super dealloc];
+}
 
 - (id)init
 {
@@ -51,10 +62,12 @@ const unsigned char SpeechKitApplicationKey[] = {0x4c, 0x91, 0xad, 0x24, 0x5c, 0
         _needsToSendTopicToDelegate = YES;
         
         // set up freqeuncy map
-        _frequencyMap = [[NSMutableDictionary alloc] init];
+        self.frequencyMap = [NSMutableDictionary dictionary];
     }
     return self;
 }
+
+#pragma mark - Instance Methods
 
 - (void)start
 {
@@ -79,8 +92,8 @@ const unsigned char SpeechKitApplicationKey[] = {0x4c, 0x91, 0xad, 0x24, 0x5c, 0
 - (void)handleUpdateTimer:(NSTimer *)timer
 {
     NSLog(@"Winston: Will update soon!");
-    self.needsToSendTopicToDelegate = YES;
-    [self.recognizer stopRecording];
+//    self.needsToSendTopicToDelegate = YES;
+//    [self.recognizer stopRecording];
 }
 
 - (void)updateFrequencyMapWithNewResults:(NSArray *)results
@@ -120,7 +133,7 @@ const unsigned char SpeechKitApplicationKey[] = {0x4c, 0x91, 0xad, 0x24, 0x5c, 0
 
 - (void)sendTopicToDelegate
 {
-    NSUInteger maxFreqeuncy;
+    NSUInteger maxFreqeuncy = 0;
     NSString *currentTopic;
     
     for (NSString *string in self.frequencyMap) {
@@ -131,7 +144,9 @@ const unsigned char SpeechKitApplicationKey[] = {0x4c, 0x91, 0xad, 0x24, 0x5c, 0
         }
     }
     
-    [self.delegate topicEngine:self didFindTopic:currentTopic];
+    if (currentTopic) {
+        [self.delegate topicEngine:self didFindTopic:currentTopic];
+    }
     
     [self.frequencyMap removeAllObjects];
 }
@@ -196,7 +211,8 @@ const unsigned char SpeechKitApplicationKey[] = {0x4c, 0x91, 0xad, 0x24, 0x5c, 0
 //                                               detection:SKLongEndOfSpeechDetection
 //                                                language:@"en_US"
 //                                                delegate:self];
-    [self stop];
+    //if (self.recognizer) [self.recognizer release];
+    self.recognizer = nil;
 }
 
 /*!

@@ -10,6 +10,9 @@
 
 @interface RotatingImageView : UIView
 
+- (void)startAnimating;
+- (void)stopAnimating;
+
 @property (nonatomic, copy) NSArray *images;
 
 @end

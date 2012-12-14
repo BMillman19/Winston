@@ -16,7 +16,7 @@
 - (void)stop;
 
 @property (nonatomic, assign) NSTimeInterval updateInterval;
-@property (nonatomic, weak) id<WinstonTopicEngineDelegate> delegate;
+@property (nonatomic, assign) id<WinstonTopicEngineDelegate> delegate;
 
 @end
 

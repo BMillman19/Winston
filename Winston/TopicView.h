@@ -13,7 +13,8 @@
 @interface TopicView : UIView
 
 - (void)fillWithTopicModel:(TopicModel *)model;
-- (void)cancelFillRequests;
 - (void)flip;
+- (void)startAnimating;
+- (void)stopAnimating;
 
 @end

@@ -19,5 +19,6 @@
 
 @property (nonatomic, weak) IBOutlet UILabel *topicLabel;
 @property (nonatomic, weak) IBOutlet iCarousel *topicCarousel;
+@property (nonatomic, weak) IBOutlet UIView *controlBarView;
 
 @end

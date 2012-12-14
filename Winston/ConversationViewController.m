@@ -24,6 +24,7 @@
 
 @synthesize topicLabel = _topicLabel;
 @synthesize topicCarousel = _topicCarousel;
+@synthesize controlBarView = _controlBarView;
 @synthesize topicEngine = _topicEngine;
 @synthesize topics = _topics;
 
@@ -50,9 +51,13 @@
     self.topicCarousel.backgroundColor = [UIColor clearColor];
     self.topicCarousel.layer.masksToBounds = NO;
     
+    // set up control bar view
+//    self.controlBarView.frame = CGRectMake(self.controlBarView.frame.origin.x, self.view.bounds.size.height, self.controlBarView.frame.size.width, self.controlBarView.frame.size.height);
+    
     // set up topic engine
     self.topicEngine = [[WinstonTopicEngine alloc] init];
     self.topicEngine.delegate = self;
+    
     
     // set up topics
     self.topics = [NSMutableArray array];
@@ -101,6 +106,22 @@
 - (void)startButtonPressed:(id)sender
 {
     [self.topicEngine start];
+    [UIView animateWithDuration:0.5f
+                          delay:0.0f
+                        options:UIViewAnimationOptionCurveLinear
+                     animations:^{
+                         self.controlBarView.center = CGPointMake(self.controlBarView.center.x, self.controlBarView.center.y - self.controlBarView.frame.size.height *2);
+                         ((UIView *)sender).alpha = 0;
+                     }
+                     completion:nil];
+    
+//    [UIView animateWithDuration:0.5f
+//                          delay:0.0f
+//                        options:UIViewAnimationOptionCurveLinear
+//                     animations:^{
+//                         self.controlBarView.frame  = self.view.bounds;
+//                     }
+//                     completion:nil];
 }
 
 - (void)stopButtonPressed:(id)sender
@@ -119,13 +140,19 @@
 - (void)topicEngine:(WinstonTopicEngine *)engine didFindTopic:(NSString *)topic
 {
     NSLog(@"Current topic: %@", topic);
-    self.topicLabel.text = topic;
+    self.topicLabel.text = [NSString stringWithFormat: @"Topic: %@", topic];
     [self.topicLabel sizeToFit];
-    [self.topicEngine start];
     
     [[TopicCenter sharedCenter] getTopic:topic response:^(TopicModel *model, NSError *error){
         [self.topics addObject:model];
-        [self.topicCarousel reloadData];
+        
+        //[items insertObject:[NSNumber numberWithInt:carousel.numberOfItems] atIndex:index];
+        [self.topicCarousel insertItemAtIndex:(self.topics.count - 1) animated:YES];
+        if (self.topics.count > 1) {
+            [self.topicCarousel scrollToItemAtIndex:(self.topics.count - 1) animated:YES];
+        }
+        
+        [self.topicEngine start];
     }];
 }
 
@@ -154,11 +181,33 @@
 
 #pragma mark - iCarouselDelegate
 
-- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
+//- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
+//{
+//    TopicView *topicView = (TopicView *)[self.topicCarousel itemViewAtIndex:index];
+//    [topicView flip];
+//}
+//- (void)carouselWillBeginDecelerating:(iCarousel *)carousel
+//{
+//    TopicView *currentView = (TopicView *)self.topicCarousel.currentItemView;
+//    [currentView stopAnimating];
+//}
+//
+//- (void)carouselDidEndDecelerating:(iCarousel *)carousel
+//{
+//    TopicView *currentView = (TopicView *)self.topicCarousel.currentItemView;
+//    [currentView startAnimating];
+//}
+
+- (void)carouselCurrentItemIndexDidChange:(iCarousel *)carousel
 {
-    TopicView *topicView = (TopicView *)[self.topicCarousel itemViewAtIndex:index];
-    [topicView flip];
+    TopicView *topicView;
+    for (int i = 0; i < self.topicCarousel.numberOfItems; i++) {
+        topicView = (TopicView *)[self.topicCarousel itemViewAtIndex:i];
+        [topicView stopAnimating];
+    }
+    [(TopicView *)self.topicCarousel.currentItemView startAnimating];
 }
+
 
 #pragma mark - Custom Accessors
 
